@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <DataTemplate x:Key="ProdutosStyle">
+        <Grid Margin="15,10,15,0"
+              ColumnDefinitions="Auto,*"
+              RowDefinitions="Auto,Auto">
+
+            <!-- Frame de fundo: ZIndex baixo -->
+            <Frame Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Grid.RowSpan="2"
+                   BackgroundColor="LightGray"
+                   BorderColor="White"
+                   Padding="10"
+                   HasShadow="False" />
+
+            <!-- Imagem (coluna 0): ZIndex maior -->
+            <Image Grid.Column="0"
+                   Grid.RowSpan="2"
+                   Margin="0,0,10,0"
+                   WidthRequest="80"
+                   HeightRequest="100"
+                   Aspect="AspectFill"
+                   Source="{Binding Imagem}" />
+
+            <!-- Texto (coluna 1): ZIndex maior -->
+            <Label Grid.Column="1"
+                   Grid.Row="0"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   Text="{Binding Nome}"
+                   TextColor="Blue"
+                   VerticalOptions="Center" />
+
+            <Label Grid.Column="1"
+                   Grid.Row="1"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   Text="{Binding Preco, StringFormat='R{0:C}'}"
+                   TextColor="Black"
+                   VerticalOptions="Center" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EmOfertaStyle">
+        <Grid Margin="15,10,15,0"
+              HeightRequest="110"
+              ColumnDefinitions="Auto,*"
+              RowDefinitions="Auto,Auto">
+
+            <Frame Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Grid.RowSpan="2"
+                   CornerRadius="10"
+                   BackgroundColor="LightCoral"
+                   BorderColor="Black"
+                   Padding="10"
+                   HasShadow="False" />
+
+            <Image Grid.Column="0"
+                   Grid.RowSpan="2"
+                   Margin="0,0,10,0"
+                   WidthRequest="80"
+                   HeightRequest="100"
+                   Aspect="AspectFill"
+                   Source="{Binding Imagem}" />
+
+            <Label Grid.Column="1"
+                   Grid.Row="0"
+                   FontSize="Title"
+                   FontAttributes="Bold"
+                   TextColor="White"
+                   Text="{Binding Nome, StringFormat='OFERTA: {0}'}"
+                   VerticalOptions="Center" />
+
+            <Label Grid.Column="1"
+                   Grid.Row="1"
+                   FontSize="Title"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   Text="{Binding Preco, StringFormat='R{0:C}'}"
+                   VerticalOptions="Center" />
+        </Grid>
+    </DataTemplate>
+
+</ResourceDictionary>
